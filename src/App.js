@@ -11,6 +11,8 @@ const Container = styled.div`
 
 const [data, setData] = useState(dataset)
 
+const onDragEnd = result => {}
+
 const App = () => {
   return (
     <div>
