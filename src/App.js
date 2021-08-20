@@ -9,11 +9,12 @@ const Container = styled.div`
   display: flex;
 `
 
-const [data, setData] = useState(dataset)
-
-const onDragEnd = result => {}
-
 const App = () => {
+
+  const [data, setData] = useState(dataset)
+
+  const onDragEnd = result => {}
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId='all-columns' direction='horizontal' type='column'>
