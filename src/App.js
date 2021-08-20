@@ -35,3 +35,9 @@ const App = () => {
 }
 
 export default App;
+
+// DragDropContext = Required root container that wraps around your movable components.
+// Droppable = a component that can be dropped.
+// Draggable = a component that can be dragged around.
+// The DragDropContext expects a mandatory event, onDragEnd, which gets triggered whenever a Draggable has finished dragging from one point to another.
+
