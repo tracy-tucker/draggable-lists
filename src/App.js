@@ -4,9 +4,12 @@ import dataset from './dataset'
 import Column from './Column'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
+// Styled component
 const Container = styled.div`
   display: flex;
 `
+
+const [data, setData] = useState(dataset)
 
 const App = () => {
   return (
