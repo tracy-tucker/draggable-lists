@@ -69,7 +69,7 @@ const App = () => {
     }
 
     const finishTaskIds = Array.from(finish.taskIds);
-    finishTaskids.splice(destination.index, 0, draggableId);
+    finishTaskIds.splice(destination.index, 0, draggableId);
     const newFinish = {
       ...finish,
       taskIds: finishTaskIds
