@@ -34,6 +34,31 @@ const App = () => {
       setData(newState)
       return;
     }
+
+    // Anything below this happens if dragging tasks
+    const start = data.columns[source.droppableId];
+    const finish = data.columns[destination.droppableId];
+
+    // if dropped inside the same column
+    if (start === finish) {
+      const newTaskIds = Array.from(start.taskIds);
+      newTaskIds.splice(source.index, 1);
+      newTaskIds.splice(destination.index, 0, draggableId);
+
+      const newColumn = {
+        ...start,
+        taskIds: newTaskIds
+      }
+      const newState = {
+        ...data,
+        columns: {
+          ...data.columns,
+          [newColumn.id]: newColumn
+        }
+      }
+      setData(newState)
+      return;
+    }
   }
 
   return (
