@@ -20,7 +20,7 @@ const App = () => {
       <Droppable droppableId='all-columns' direction='horizontal' type='column'>
         {(provided) => (
           <Container {...provided.droppableProps} ref={provided.innerRef}>
-            {data.columnOrder.at.map((id, index) => {
+            {data.columnOrder.map((id, index) => {
               const column = data.columns[id]
               const tasks = column.taskIds.map(taskId => data.tasks[taskId])
 
@@ -49,4 +49,11 @@ export default App;
 // provided.innerRef = you must bind the provided.innerRef to the highest possible DOM node within the React element. This helps avoid using ReactDOM.
 // provided.droppableProps = This is an Object that contains properties that need to be applied to a Droppable element. It needs to be applied to the same element that you apply provided.innerRef to.
 
+// I mapped over columnOrder to return a Column component with a set of props:
+// key = column id
+// column = column data from dataset
+// tasks = task data from dataset
+// index
+
+// provided.placeholder - This is used to create space in the Droppaable as needed during a drag.
 
