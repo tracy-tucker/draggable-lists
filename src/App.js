@@ -22,7 +22,18 @@ const App = () => {
     // If source and destination is the same
     if (destination.droppableId === source.droppableId && destination.index === source.index) {return}
 
-    //
+    // If dragging columns
+    if (type === 'column') {
+      const newColumnOrder = Array.from(data.columnOrder)
+      newColumnOrder.splice(source.index, 1);
+      newColumnOrder.splice(destination.index, 0, draggableId);
+      const newState = {
+        ...data,
+        columnOrder: newColumnOrder
+      }
+      setData(newState)
+      return;
+    }
   }
 
   return (
