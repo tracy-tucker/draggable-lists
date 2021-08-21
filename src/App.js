@@ -59,6 +59,31 @@ const App = () => {
       setData(newState)
       return;
     }
+
+    // if dropped in a different column
+    const startTaskIds = Array.from(start.taskIds);
+    startTaskIds.splice(source.index, 1);
+    const newStart = {
+      ...start,
+      taskIds: startTaskIds
+    }
+
+    const finishTaskIds = Array.from(finish.taskIds);
+    finishTaskids.splice(destination.index, 0, draggableId);
+    const newFinish = {
+      ...finish,
+      taskIds: finishTaskIds
+    }
+
+    const newState = {
+      ...data,
+      columns: {
+        ...data.columns,
+        [newStart.id]: newStart,
+        [newFinish.id]: newFinish
+      }
+    }
+    setData(newState)
   }
 
   return (
